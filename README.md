@@ -22,6 +22,8 @@ cp settings-example.py settings.py
 # 启动项目
 uvicorn main:app --reload --host 0.0.0.0
 
+查看swagger文档 /docs
+
 ```
 
 # Config

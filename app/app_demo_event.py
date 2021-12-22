@@ -18,6 +18,7 @@ class GetEvent():
         return data
 
     def ParsingEvent(self,data):
+        """解析返回数据"""
         issueList = []
         for i in data:
             issueData = {}
@@ -28,18 +29,21 @@ class GetEvent():
         return issueList
 
     def getIssueEvents(self,realtime):
+        """持续获取全部增发USDT"""
         while 1:
             data = self.MainFunction()
             pprint(self.ParsingEvent(data))
             time.sleep(realtime)
 
     def getIssueEventsPoll(self):
-            data = self.MainFunction()
-            return(self.ParsingEvent(data))
+        """获取全部增发USDT"""
+        data = self.MainFunction()
+        return(self.ParsingEvent(data))
 
     def getIssueEventsPollCon(self):
-            data = self.ParsingEvent(self.MainFunction())[-1]['amount']
-            return data
+        """获取最新增发数据"""
+        data = self.ParsingEvent(self.MainFunction())[-1]['amount']
+        return data
 
 if __name__ == "__main__":
     getfunc = GetEvent()
