@@ -19,3 +19,6 @@ class EventResp(BaseModel):
 
 class EventConResp(BaseModel):
     events: int
+
+class MKTCAP(BaseModel):
+    MKTCAP: float

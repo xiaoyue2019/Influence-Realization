@@ -4,12 +4,13 @@
 # Author: xiaoyue
 # Email: xiaoyue2019@outlook.com
 # Created Time: 2021-12-14
+from telnetlib import TM
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app_demo_event import GetEvent
 from settings import DEBUG
 from utils import parse_readme
-from schema import VersionResp,EventResp,EventConResp
+from schema import VersionResp,EventResp,EventConResp,MKTCAP
 
 version = "0.5.0"     # 系统版本号
 title, description = parse_readme()
@@ -66,3 +67,50 @@ async def getIssueEventsPollCon():
     getfunc = GetEvent()
     resdata = getfunc.getIssueEventsPollCon()
     return {"events":int(resdata)}
+
+@app.get("/getUSDTMKTCAP",summary='获取USDT总流通市值',
+            response_model=MKTCAP)
+async def getUSDTMKTCAP():
+    "获取USDT总流通市值"
+    import requests,json
+    url = "https://min-api.cryptocompare.com/data/top/exchanges/full?fsym=USDT&tsym=USD"
+    data = json.loads(requests.get(url).text)
+    data = data['Data']['AggregatedData']['MKTCAP']
+    print(data)
+    return {"MKTCAP":float(data)}
+
+@app.get("/getETHMKTCAP",summary='获取ETH总流通市值',
+            response_model=MKTCAP)
+async def getETHMKTCAP():
+    "获取ETH总流通市值"
+    import requests,json
+    url = "https://min-api.cryptocompare.com/data/top/exchanges/full?fsym=ETH&tsym=USD"
+    data = json.loads(requests.get(url).text)
+    data = data['Data']['AggregatedData']['MKTCAP']
+    print(data)
+    return {"MKTCAP":float(data)}
+
+
+@app.get("/getReserve",summary='获取USDT准备金金额',
+            response_model=MKTCAP)
+async def getReserve():
+    "获取usdt准备金金额"
+    data = 69156771674
+    return {"MKTCAP":data}
+
+@app.get("/risk_factor",summary='获取风险系数',
+            response_model=MKTCAP)
+async def risk_factor():
+    "获取风险系数"
+    import requests,json
+    url = "https://min-api.cryptocompare.com/data/top/exchanges/full?fsym=ETH&tsym=USD"
+    data = json.loads(requests.get(url).text)
+    _TM = data['Data']['AggregatedData']['MKTCAP']
+    url = "https://min-api.cryptocompare.com/data/top/exchanges/full?fsym=USDT&tsym=USD"
+    data = json.loads(requests.get(url).text)
+    _UM = data['Data']['AggregatedData']['MKTCAP']
+    _ULM = _UM
+    _RM = 69156771674
+
+    data = (_ULM/_TM)*(_UM/_RM)
+    return {"MKTCAP":float(data)}
