@@ -6,31 +6,39 @@ Get the backend of usdt issuance event
 
 ##  Installation
 
-使用**Python3.6** +
+use **Python3.6** + 、**npm8.1.2** +
 
+## backend
 ```Bash
 virtualenv venv
 
 source venv/bin/activate
+# if system is windows:
+# cd venv/Scripts/
+# activate
 
 pip install -r requirements.txt
 
-cd app
+cd app_backend
 
 cp settings-example.py settings.py
 
-# 启动项目
-uvicorn main:app --reload --host 0.0.0.0
+# run the backend server
+uvicorn main:app_backend --reload --host 127.0.0.1
 
-查看swagger文档 /docs
+check swagger document /docs
 
 ```
-
+## front
+```Bash
+# run the front server
+npm run dev
 # Config
-
-API服务配置
-
-```JSON
-# 全局测试状态
-DEBUG = False
 ```
+
+API Service Configuration
+
+```JSON```
+# Global test status
+DEBUG = False
+

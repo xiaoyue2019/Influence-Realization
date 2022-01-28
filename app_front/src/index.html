@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Risk Management Platform</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 layui.css -->
+      <link rel="stylesheet" href="js/layui/css/layui.css">
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">Risk Management Platform</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+    </div>
+
+    <div id="petTemplate">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <div class="panel panel-default panel-pet">
+          <div class="panel-heading">
+            <h3 class="panel-title">data transferring</h3>
+          </div>
+          <div class="panel-body">
+             <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo grid-demo-bg1">
+                  <button class="btn btn-danger btn-calRisk" type="button" data-id="0">Calculate risk factor</button>
+                </div>
+              </div>
+             </div>
+            <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo grid-demo-bg1">
+                  <button class="btn btn-danger btn-getRisk" type="button" data-id="1">Get risk factor</button>
+                </div>
+              </div>
+            </div>
+            <br/><hr class="layui-border-cyan"><br/>
+             <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo">
+                  <button class="btn layui-btn btn-getVersion" type="button" data-id="2">Get Version No.</button>
+                </div>
+              </div>
+            </div>
+             <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo grid-demo-bg1">
+                  <button class="btn layui-btn-normal btn-getAddUsdt" type="button" data-id="3">Get the number of additional usdt</button>
+                </div>
+              </div>
+            </div>
+             <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo">
+                  <button class="btn layui-btn-normal btn-getTotalUsdt" type="button" data-id="4">Get the total market cap of USDT outstanding</button>
+                </div>
+              </div>
+            </div>
+             <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo">
+                  <button class="btn layui-btn-normal btn-getTotalETH" type="button" data-id="5">Get the total market cap of ETH outstanding</button>
+                </div>
+              </div>
+            </div>
+             <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo">
+                  <button class="btn layui-btn-normal btn-getReserveUsdt" type="button" data-id="6">Get USDT reserve amount</button>
+                </div>
+              </div>
+            </div>
+             <div class="layui-row layui-col-space5">
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <div class="grid-demo">
+                  <button class="btn layui-btn-warm btn-getNewAdd" type="button" data-id="7">Get the latest number of additional usdt issues</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9 col-md-9 col-lg-9">
+        <div class="panel panel-default panel-pet">
+            <div class="panel-heading">
+              <h3 class="panel-title">Show detailed data</h3>
+            </div>
+            <div class="panel-body" >
+                <div style="padding: 5px;" id="data-risk"></div>
+                <div style="padding: 5px;" id="data-version"></div>
+                <div style="padding: 5px;" id="data-addition"></div>
+                <div style="padding: 5px;" id="data-totalUsdt"></div>
+                <div style="padding: 5px;" id="data-totalEth"></div>
+                <div style="padding: 5px;" id="data-reserveUsdt"></div>
+                <table id="getAddUsdt" lay-filter="test"></table>
+              </div>
+            </div>
+        </div>
+        <div class="panel-body">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/layui/layui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
