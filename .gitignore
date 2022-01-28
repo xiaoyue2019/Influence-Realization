@@ -2,4 +2,5 @@ venv
 app_front/node_modules/*
 .idea/*
 __pycache__/
-app/__pycache__/
+app/*
+
